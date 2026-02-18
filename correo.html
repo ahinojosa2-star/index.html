@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del estudiante</title>
+</head>
+<body>
+    <div class="caja">
+    <h2>Datos del estudiante</h2>
+    <label>Nombre Completo:</label><br>
+    <input type="text" id="nombreCompleto"><br><br>
+    <label>Número de telefono:</label><br>
+    <input type="number" id="Telefono"><br><br>
+    <label>Fecha de nacimiento:</label><br>
+    <input type="text" id="fechaNacimiento"><br><br>
+     <label>Edad del estudiante:</label><br>
+    <input type="text" id="edadEstudiante"><br><br>
+    <button onclick="Estudiante()">Mostrar Información</button>
+    <button onclick="BorrarDatos()">Eliminar datos</button>
+     <p class="error" id="aviso"></p>
+    <div class="resultado" id="infoEstudiante"></div>
+</div>
+<script>
+    function Estudiante() {
+        let nombre = document.getElementById("nombreCompleto").value;
+        let Telefono = document.getElementById("Telefono").value;
+        let fecha = document.getElementById("fechaNacimiento").value;
+        let Edad = document.getElementById("edadEstudiante").value;
+        if (nombre === "" || Telefono === "" || fecha === "" || Edad === "") {
+            document.getElementById("aviso").innerHTML = "Todos los campos deben ser llenados.";
+            document.getElementById("infoEstudiante").innerHTML = "";
+        } else {
+            document.getElementById("aviso").innerHTML = "";
+            document.getElementById("infoEstudiante").innerHTML =
+                "<b>Datos del Estudiante:</b><br><br>" +
+                "Nombre: " + nombre + "<br>" +
+                "Número de Teléfono: " + Telefono + "<br>" +
+                "Fecha de Nacimiento: " + fecha + "<br>" +
+                "Edad del Estudiante: " + Edad + "<br>" +
+                "Teléfono: " + Telefono;
+        }
+    }
+    function BorrarDatos() {
+        document.getElementById("infoEstudiante").innerHTML = "";
+        document.getElementById("aviso").innerHTML = "";
+        document.getElementById("nombreCompleto").value = "";
+        document.getElementById("Telefono").value = "";
+        document.getElementById("fechaNacimiento").value = "";
+        document.getElementById("edadEstudiante").value = "";
+    }
+</script>
+</body>
+</html>
